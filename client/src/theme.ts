@@ -1,5 +1,3 @@
-import {ThemeOptions} from '@mui/system';
-
 export interface ColorTokens {
   grey: {
     0: string;
@@ -30,7 +28,27 @@ export interface ColorTokens {
   };
 }
 
-// color design tokens export
+export interface Theme {
+  typography: {
+    fontFamily: string;
+    h1: { fontFamily: string; fontSize: number };
+    fontSize: number;
+    h2: { fontFamily: string; fontSize: number };
+    h3: { fontFamily: string; fontSize: number };
+    h4: { fontFamily: string; fontSize: number };
+    h5: { fontFamily: string; fontSize: number };
+    h6: { fontFamily: string; fontSize: number }
+  };
+  palette: {
+    mode: 'light' | 'dark';
+    secondary: { main: string };
+    background: { default: string; alt: string };
+    tertiary: { main: string };
+    neutral: { light: string; dark: string; main: string; mediumMain: string; medium: string };
+    primary: { light: string; dark: string; main: string }
+  }
+}
+
 export const colorTokens: ColorTokens = {
   grey: {
     0: '#FFFFFF',
@@ -38,9 +56,9 @@ export const colorTokens: ColorTokens = {
     50: '#F0F0F0',
     100: '#E0E0E0',
     200: '#C2C2C2',
-    300: '#A3A3A3',
-    400: '#858585',
-    500: '#666666',
+    300: '#99A2AD',
+    400: '#818C99',
+    500: '#6D7885',
     600: '#4D4D4D',
     700: '#333333',
     800: '#1A1A1A',
@@ -49,29 +67,34 @@ export const colorTokens: ColorTokens = {
   },
   primary: {
     50: '#E6FBFF',
-    100: '#CCF7FE',
-    200: '#99EEFD',
-    300: '#66E6FC',
-    400: '#33DDFB',
-    500: '#00D5FA',
-    600: '#00A0BC',
-    700: '#006B7D',
-    800: '#00353F',
-    900: '#001519',
+    100: '#5c9de8',
+    200: '#5C9CE6',
+    300: '#528BCC',
+    400: '#5181B8',
+    500: '#3C6A9E',
+    600: '#45678F',
+    700: '#3A5A7F',
+    800: '#28436E',
+    900: '#223e68',
   },
 };
 
-export const themeSettings = (mode: 'light' | 'dark'): ThemeOptions => {
+export const themeSettings = (mode: 'light' | 'dark'): Theme => {
   return {
     palette: {
       mode: mode,
       ...(mode === 'dark'
         ? {
-          // palette values for dark mode
           primary: {
             dark: colorTokens.primary[200],
             main: colorTokens.primary[500],
             light: colorTokens.primary[800],
+          },
+          secondary: {
+            main: colorTokens.grey[500],
+          },
+          tertiary: {
+            main: colorTokens.grey[300],
           },
           neutral: {
             dark: colorTokens.grey[100],
@@ -86,11 +109,16 @@ export const themeSettings = (mode: 'light' | 'dark'): ThemeOptions => {
           },
         }
         : {
-          // palette values for light mode
           primary: {
             dark: colorTokens.primary[700],
             main: colorTokens.primary[500],
             light: colorTokens.primary[50],
+          },
+          secondary: {
+            main: colorTokens.grey[500],
+          },
+          tertiary: {
+            main: colorTokens.grey[400],
           },
           neutral: {
             dark: colorTokens.grey[700],

@@ -1,24 +1,22 @@
 import {FC, useEffect, useState} from 'react';
 import {
-  LocationOnOutlined,
+  LocationOnOutlined, Person,
   WorkOutlineOutlined,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Box, Typography, Divider, useTheme } from '@mui/material';
 
-import UserImage from '../../components/UserImage.tsx';
-import FlexBetween from '../../components/FlexBetween.ts';
-import WidgetWrapper from '../../components/WidgetWrapper.ts';
+import UserImage from '../../../components/UserImage.tsx';
+import FlexBetween from '../../../components/FlexBetween.ts';
+import WidgetWrapper from '../../../components/WidgetWrapper.ts';
 
-interface UserWidgetProps {
-  userId: string;
-  picturePath: string;
-}
+import { UserWidgetProps } from './interfaces.ts';
+import { Theme } from '../../../theme.ts';
 
 const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
-  const { palette } = useTheme();
+  const { palette }: Theme = useTheme();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
   const dark = palette.neutral.dark;
@@ -48,6 +46,7 @@ const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
     location,
     occupation,
     friends,
+    age,
   } = user;
 
   return (
@@ -86,6 +85,10 @@ const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
         <Box display='flex' alignItems='center' gap='1rem'>
           <WorkOutlineOutlined fontSize='large' sx={{ color: main }} />
           <Typography color={medium}>{occupation}</Typography>
+        </Box>
+        <Box display='flex' alignItems='center' gap='1rem'>
+          <Person fontSize='large' sx={{ color: main }} />
+          <Typography color={medium}>{age}</Typography>
         </Box>
       </Box>
     </WidgetWrapper>
