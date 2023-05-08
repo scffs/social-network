@@ -1,11 +1,11 @@
-import {FC, useEffect} from 'react';
+import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setPosts } from '../../../slice';
 
 import PostWidget from '../PostWidget';
 
-import {Post, PostWidgetProps} from './interfaces.ts';
+import { Post, PostWidgetProps } from './interfaces.ts';
 
 const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${token}` },
-      }
+      },
     );
     const data = await response.json();
     dispatch(setPosts({ posts: data }));
@@ -43,9 +43,8 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      {posts[0]._id ? posts.map(({
+      {posts.map(({
         _id,
-        userId,
         firstName,
         lastName,
         description,
@@ -65,7 +64,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
           userPicturePath={userPicturePath}
           likes={likes}
         />
-      )) : 'Постов нет'}
+      ))}
     </>
   );
 };

@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 

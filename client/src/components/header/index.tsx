@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   IconButton,
@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 import { setMode, setLogout } from '../../slice';
 
 import FlexBetween from '../FlexBetween.ts';
-import {Theme} from '../../theme.ts';
+import { Theme } from '../../theme.ts';
 
 const Header = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -34,7 +34,7 @@ const Header = () => {
 
   const { palette }: Theme = useTheme();
   const neutralLight = palette.neutral.light;
-  const dark = palette.neutral.dark;
+  const { dark } = palette.neutral;
   const background = palette.background.default;
   const alt = palette.background.paper;
 

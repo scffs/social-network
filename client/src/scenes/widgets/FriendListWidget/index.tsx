@@ -1,4 +1,4 @@
-import {FC, useEffect} from 'react';
+import React, { FC, useEffect } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,7 +8,7 @@ import WidgetWrapper from '../../../components/WidgetWrapper.ts';
 import Friend from '../../../components/Friend.tsx';
 
 import { FriendListWidgetProps } from './interfaces.ts';
-import {Theme} from '../../../theme.ts';
+import { Theme } from '../../../theme.ts';
 
 const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${token}` },
-      }
+      },
     );
     const data = await response.json();
     dispatch(setFriends({ friends: data }));

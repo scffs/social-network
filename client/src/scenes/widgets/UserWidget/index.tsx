@@ -1,11 +1,13 @@
-import {FC, useEffect, useState} from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
   LocationOnOutlined, Person,
   WorkOutlineOutlined,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Box, Typography, Divider, useTheme } from '@mui/material';
+import {
+  Box, Typography, Divider, useTheme,
+} from '@mui/material';
 
 import UserImage from '../../../components/UserImage.tsx';
 import FlexBetween from '../../../components/FlexBetween.ts';
@@ -19,9 +21,9 @@ const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
   const { palette }: Theme = useTheme();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
-  const dark = palette.neutral.dark;
-  const medium = palette.neutral.medium;
-  const main = palette.neutral.main;
+  const { dark } = palette.neutral;
+  const { medium } = palette.neutral;
+  const { main } = palette.neutral;
 
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -70,9 +72,15 @@ const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
                 },
               }}
             >
-              {firstName} {lastName}
+              {firstName}
+              {' '}
+              {lastName}
             </Typography>
-            <Typography color={medium}>{friends.length} friends</Typography>
+            <Typography color={medium}>
+              {friends.length}
+              {' '}
+              friends
+            </Typography>
           </Box>
         </FlexBetween>
       </FlexBetween>

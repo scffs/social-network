@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Button,
@@ -21,7 +21,7 @@ import { initialValuesRegister, initialValuesLogin } from './formValues';
 import { registerSchema, loginSchema } from './validationSchemas';
 
 import { FormValues, SubmitHandler } from './types.ts';
-import {Theme} from '../../theme.ts';
+import { Theme } from '../../theme.ts';
 
 const Form = () => {
   const [pageType, setPageType] = useState('login');
@@ -46,7 +46,7 @@ const Form = () => {
       {
         method: 'POST',
         body: formData,
-      }
+      },
     );
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
@@ -71,7 +71,7 @@ const Form = () => {
         setLogin({
           user: loggedIn.user,
           token: loggedIn.token,
-        })
+        }),
       );
       navigate('/home');
     }
@@ -168,9 +168,7 @@ const Form = () => {
                   <Dropzone
                     acceptedFiles='.jpg,.jpeg,.png'
                     multiple={false}
-                    onDrop={(acceptedFiles) =>
-                      setFieldValue('picture', acceptedFiles[0])
-                    }
+                    onDrop={(acceptedFiles) => setFieldValue('picture', acceptedFiles[0])}
                   >
                     {({ getRootProps, getInputProps }) => (
                       <Box

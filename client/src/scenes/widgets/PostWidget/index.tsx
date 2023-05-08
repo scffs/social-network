@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import React, { FC, useState } from 'react';
 import {
   FavoriteBorderOutlined,
   FavoriteOutlined,
@@ -13,7 +13,7 @@ import WidgetWrapper from '../../../components/WidgetWrapper.ts';
 import { setPost } from '../../../slice';
 
 import { PostWidgetProps, RootState } from './interfaces.ts';
-import {Theme} from '../../../theme.ts';
+import { Theme } from '../../../theme.ts';
 
 const PostWidget:FC<PostWidgetProps> = ({
   postId,
@@ -33,7 +33,7 @@ const PostWidget:FC<PostWidgetProps> = ({
   const likeCount = Object.keys(localLikes).length;
 
   const { palette }: Theme = useTheme();
-  const main = palette.neutral.main;
+  const { main } = palette.neutral;
   const primary = palette.primary.main;
 
   const handleLikeClick = async () => {
@@ -46,7 +46,7 @@ const PostWidget:FC<PostWidgetProps> = ({
       body: JSON.stringify({ userId: loggedInUserId }),
     });
     const updatedPost = await response.json();
-    dispatch(setPost({ postId: postId, post: updatedPost }));
+    dispatch(setPost({ postId, post: updatedPost }));
     setLocalLikes(updatedPost.likes);
   };
 
