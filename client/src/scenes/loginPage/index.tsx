@@ -1,7 +1,12 @@
-import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import React from 'react';
+import {
+  Box, Typography, useTheme, useMediaQuery,
+} from '@mui/material';
 
 import Form from './Form.js';
 import {Theme} from '../../theme.ts';
+
+import { Theme } from '../../theme.ts';
 
 const LoginPage = () => {
   const { palette }: Theme = useTheme();

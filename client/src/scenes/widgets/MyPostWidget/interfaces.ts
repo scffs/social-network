@@ -1,3 +1,3 @@
 export interface UserWidgetProps {
-    picturePath: string;
+  picturePath: string;
 }

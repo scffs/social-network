@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import React, { FC, useState } from 'react';
 import {
   EditOutlined,
   DeleteOutlined,
@@ -23,7 +23,7 @@ import WidgetWrapper from '../../../components/WidgetWrapper.ts';
 import UserImage from '../../../components/UserImage.tsx';
 
 import { UserWidgetProps } from './interfaces.ts';
-import {Theme} from '../../../theme.ts';
+import { Theme } from '../../../theme.ts';
 
 const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
   const dispatch = useDispatch();
@@ -33,8 +33,8 @@ const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
   const { palette }: Theme = useTheme();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const mediumMain = palette.neutral.mediumMain;
-  const medium = palette.neutral.medium;
+  const { mediumMain } = palette.neutral;
+  const { medium } = palette.neutral;
 
   const handlePost = async () => {
     const formData = new FormData();

@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { PersonAddOutlined, PersonRemoveOutlined } from '@mui/icons-material';
-import { Box, IconButton, Typography, useTheme } from '@mui/material';
+import {
+  Box, IconButton, Typography, useTheme,
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFriends } from '../slice';
 import FlexBetween from './FlexBetween.ts';
 import UserImage from './UserImage.tsx';
-import {Theme} from '../theme.ts';
+import { Theme } from '../theme.ts';
 
 interface FriendProps {
   friendId: string;
@@ -17,7 +19,9 @@ interface FriendProps {
   userPicturePath: string;
 }
 
-const Friend:FC<FriendProps> = ({ friendId, name, subtitle, userPicturePath }) => {
+const Friend:FC<FriendProps> = ({
+  friendId, name, subtitle, userPicturePath,
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
@@ -27,8 +31,8 @@ const Friend:FC<FriendProps> = ({ friendId, name, subtitle, userPicturePath }) =
   const { palette }: Theme = useTheme();
   const primaryLight = palette.primary.light;
   const primaryDark = palette.primary.dark;
-  const main = palette.neutral.main;
-  const medium = palette.neutral.medium;
+  const { main } = palette.neutral;
+  const { medium } = palette.neutral;
 
   const isFriend = friends.length && friends.find((friend) => friend._id === friendId);
 
@@ -41,7 +45,7 @@ const Friend:FC<FriendProps> = ({ friendId, name, subtitle, userPicturePath }) =
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
