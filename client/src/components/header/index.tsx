@@ -35,6 +35,7 @@ const Header = () => {
   const { palette }: Theme = useTheme();
   const neutralLight = palette.neutral.light;
   const { dark } = palette.neutral;
+
   const background = palette.background.default;
   const alt = palette.background.paper;
 

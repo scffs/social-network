@@ -43,8 +43,9 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      {posts.map(({
+      {posts[0]._id ? posts.map(({
         _id,
+        userId,
         firstName,
         lastName,
         description,
@@ -65,6 +66,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
           likes={likes}
         />
       ))}
+      )) : 'Постов нет'}
     </>
   );
 };
