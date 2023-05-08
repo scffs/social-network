@@ -65,7 +65,6 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
           userPicturePath={userPicturePath}
           likes={likes}
         />
-      ))}
       )) : 'Постов нет'}
     </>
   );
