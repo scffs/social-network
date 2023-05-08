@@ -1,6 +1,6 @@
-# VK Mini - a little social network
+# VK Mini - a small social network
 
-Made by:
+Stack:
 - **Frontend**: React / TS / Redux toolkit / Router Dom v6 / MIUI
 - **Backend**: MongoDB / Express / NodeJS 
 
