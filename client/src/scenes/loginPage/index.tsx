@@ -1,9 +1,10 @@
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 
 import Form from './Form.js';
+import {Theme} from '../../theme.ts';
 
 const LoginPage = () => {
-  const theme = useTheme();
+  const { palette }: Theme = useTheme();
   const isNonMobileScreens = useMediaQuery('(min-width: 1000px)');
 
   return (
@@ -11,7 +12,7 @@ const LoginPage = () => {
       <Box
         component='div'
         width='100%'
-        bgcolor={theme.palette.background.paper}
+        bgcolor={palette.background.alt}
         p='1rem 6%'
         textAlign='center'
       >
@@ -26,7 +27,7 @@ const LoginPage = () => {
         p='2rem'
         m='2rem auto'
         borderRadius='1.5rem'
-        bgcolor={theme.palette.background.paper}
+        bgcolor={palette.background.alt}
       >
         <Typography fontWeight='500' variant='h5' sx={{ mb: '1.5rem' }}>
           Welcome to VK Mini!

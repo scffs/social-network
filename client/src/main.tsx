@@ -6,7 +6,7 @@ import { persistStore} from 'redux-persist';
 
 import App from './App.tsx';
 
-import {store} from './store/store.tsx';
+import { store } from './store/store.tsx';
 
 import './index.css';
 

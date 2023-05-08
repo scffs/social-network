@@ -21,10 +21,11 @@ import { initialValuesRegister, initialValuesLogin } from './formValues';
 import { registerSchema, loginSchema } from './validationSchemas';
 
 import { FormValues, SubmitHandler } from './types.ts';
+import {Theme} from '../../theme.ts';
 
 const Form = () => {
   const [pageType, setPageType] = useState('login');
-  const { palette } = useTheme();
+  const { palette }: Theme = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery('(min-width:600px)');

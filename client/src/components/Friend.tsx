@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFriends } from '../slice';
 import FlexBetween from './FlexBetween.ts';
 import UserImage from './UserImage.tsx';
+import {Theme} from '../theme.ts';
 
 interface FriendProps {
   friendId: string;
@@ -23,7 +24,7 @@ const Friend:FC<FriendProps> = ({ friendId, name, subtitle, userPicturePath }) =
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
 
-  const { palette } = useTheme();
+  const { palette }: Theme = useTheme();
   const primaryLight = palette.primary.light;
   const primaryDark = palette.primary.dark;
   const main = palette.neutral.main;
@@ -62,7 +63,7 @@ const Friend:FC<FriendProps> = ({ friendId, name, subtitle, userPicturePath }) =
             fontWeight='500'
             sx={{
               '&:hover': {
-                color: palette.primary.light,
+                color: primaryDark,
                 cursor: 'pointer',
               },
             }}

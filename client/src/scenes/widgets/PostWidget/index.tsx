@@ -12,7 +12,8 @@ import WidgetWrapper from '../../../components/WidgetWrapper.ts';
 
 import { setPost } from '../../../slice';
 
-import {PostWidgetProps, RootState } from './interfaces.ts';
+import { PostWidgetProps, RootState } from './interfaces.ts';
+import {Theme} from '../../../theme.ts';
 
 const PostWidget:FC<PostWidgetProps> = ({
   postId,
@@ -31,7 +32,7 @@ const PostWidget:FC<PostWidgetProps> = ({
   const isLiked = Boolean(localLikes[loggedInUserId]);
   const likeCount = Object.keys(localLikes).length;
 
-  const { palette } = useTheme();
+  const { palette }: Theme = useTheme();
   const main = palette.neutral.main;
   const primary = palette.primary.main;
 

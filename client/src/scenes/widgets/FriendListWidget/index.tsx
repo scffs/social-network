@@ -1,19 +1,18 @@
-import React, {FC, useEffect} from 'react';
+import {FC, useEffect} from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setFriends } from '../../slice';
+import { setFriends } from '../../../slice';
 
-import WidgetWrapper from '../../components/WidgetWrapper.ts';
-import Friend from '../../components/Friend.tsx';
+import WidgetWrapper from '../../../components/WidgetWrapper.ts';
+import Friend from '../../../components/Friend.tsx';
 
-interface FriendListWidgetProps {
-  userId: string;
-}
+import { FriendListWidgetProps } from './interfaces.ts';
+import {Theme} from '../../../theme.ts';
 
 const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const dispatch = useDispatch();
-  const { palette } = useTheme();
+  const { palette }: Theme = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
   const getFriends = async () => {
