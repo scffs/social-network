@@ -16,22 +16,21 @@ import {
 import Dropzone from 'react-dropzone';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setPosts } from '../../slice';
+import { setPosts } from '../../../slice';
 
-import FlexBetween from '../../components/FlexBetween.ts';
-import WidgetWrapper from '../../components/WidgetWrapper.ts';
-import UserImage from '../../components/UserImage.tsx';
+import FlexBetween from '../../../components/FlexBetween.ts';
+import WidgetWrapper from '../../../components/WidgetWrapper.ts';
+import UserImage from '../../../components/UserImage.tsx';
 
-interface UserWidgetProps {
-  picturePath: string;
-}
+import { UserWidgetProps } from './interfaces.ts';
+import {Theme} from '../../../theme.ts';
 
 const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
   const [post, setPost] = useState('');
-  const { palette } = useTheme();
+  const { palette }: Theme = useTheme();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const mediumMain = palette.neutral.mediumMain;
@@ -62,7 +61,7 @@ const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
       <FlexBetween gap='1.5rem'>
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="What's on your mind..."
+          placeholder='Пишите о чём угодно'
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
@@ -96,7 +95,7 @@ const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
                 >
                   <input {...getInputProps()} />
                   {!image ? (
-                    <p>Add Image Here</p>
+                    <p>Загрузить изображение</p>
                   ) : (
                     <FlexBetween>
                       <Typography>{image.name}</Typography>

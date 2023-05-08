@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import Header from '../../components/header';
-import UserWidget from '../widgets/UserWidget.tsx';
-import FriendListWidget from '../widgets/FriendListWidget.tsx';
-import MyPostWidget from '../widgets/MyPostWidget.tsx';
-import PostsWidget from '../widgets/PostsWidget.tsx';
+import UserWidget from '../widgets/UserWidget';
+import FriendListWidget from '../widgets/FriendListWidget';
+import MyPostWidget from '../widgets/MyPostWidget';
+import PostsWidget from '../widgets/PostsWidget';
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);

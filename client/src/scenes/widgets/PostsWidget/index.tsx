@@ -1,26 +1,11 @@
 import {FC, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setPosts } from '../../slice';
+import { setPosts } from '../../../slice';
 
-import PostWidget from './PostWidget';
+import PostWidget from '../PostWidget';
 
-interface Post {
-  _id: string;
-  userId: string;
-  firstName: string;
-  lastName: string;
-  description: string;
-  location: string;
-  picturePath: string;
-  userPicturePath: string;
-  likes: { [key: string]: boolean };
-}
-
-interface PostWidgetProps {
-  userId: string;
-  isProfile?: boolean;
-}
+import {Post, PostWidgetProps} from './interfaces.ts';
 
 const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
@@ -80,7 +65,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
           userPicturePath={userPicturePath}
           likes={likes}
         />
-      )) : 'No posts yet'}
+      )) : 'Постов нет'}
     </>
   );
 };
