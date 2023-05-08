@@ -23,8 +23,8 @@ import { Link } from 'react-router-dom';
 
 import { setMode, setLogout } from '../../slice';
 
-import FlexBetween from '../FlexBetween.ts';
-import { Theme } from '../../theme.ts';
+import FlexBetween from '../FlexBetween';
+import { Theme } from '../../theme';
 
 const Header = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);

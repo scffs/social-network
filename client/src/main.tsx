@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 
-import App from './App.tsx';
+import App from './App';
 
-import { store } from './store/store.tsx';
+import { store } from './store/store';
 
 import './index.css';
 

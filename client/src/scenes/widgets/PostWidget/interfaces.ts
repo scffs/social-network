@@ -1,4 +1,4 @@
-import { AuthState, Post } from '../../../slice/interfaces.ts';
+import { AuthState, Post } from '../../../slice/interfaces';
 
 export interface PostWidgetProps {
   postId: string;

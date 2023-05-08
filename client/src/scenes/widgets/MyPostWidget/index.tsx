@@ -18,12 +18,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setPosts } from '../../../slice';
 
-import FlexBetween from '../../../components/FlexBetween.ts';
-import WidgetWrapper from '../../../components/WidgetWrapper.ts';
-import UserImage from '../../../components/UserImage.tsx';
+import FlexBetween from '../../../components/FlexBetween';
+import WidgetWrapper from '../../../components/WidgetWrapper';
+import UserImage from '../../../components/UserImage';
 
-import { UserWidgetProps } from './interfaces.ts';
-import { Theme } from '../../../theme.ts';
+import { UserWidgetProps } from './interfaces';
+
+import { Theme } from '../../../theme';
 
 const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
   const dispatch = useDispatch();

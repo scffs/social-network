@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setFriends } from '../slice';
-import FlexBetween from './FlexBetween.ts';
-import UserImage from './UserImage.tsx';
-import { Theme } from '../theme.ts';
+import FlexBetween from './FlexBetween';
+import UserImage from './UserImage';
+import { Theme } from '../theme';
 
 interface FriendProps {
   friendId: string;

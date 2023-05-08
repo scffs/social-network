@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { AuthState, Post, User } from './interfaces.ts';
+import { AuthState, Post, User } from './interfaces';
 
 const initialState: AuthState = {
   mode: 'light',

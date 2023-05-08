@@ -6,14 +6,14 @@ import {
 import { IconButton, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import FlexBetween from '../../../components/FlexBetween.ts';
-import Friend from '../../../components/Friend.tsx';
-import WidgetWrapper from '../../../components/WidgetWrapper.ts';
+import FlexBetween from '../../../components/FlexBetween';
+import Friend from '../../../components/Friend';
+import WidgetWrapper from '../../../components/WidgetWrapper';
 
 import { setPost } from '../../../slice';
 
-import { PostWidgetProps, RootState } from './interfaces.ts';
-import { Theme } from '../../../theme.ts';
+import { PostWidgetProps, RootState } from './interfaces';
+import { Theme } from '../../../theme';
 
 const PostWidget:FC<PostWidgetProps> = ({
   postId,

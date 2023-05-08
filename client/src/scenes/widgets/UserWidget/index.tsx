@@ -9,21 +9,19 @@ import {
   Box, Typography, Divider, useTheme,
 } from '@mui/material';
 
-import UserImage from '../../../components/UserImage.tsx';
-import FlexBetween from '../../../components/FlexBetween.ts';
-import WidgetWrapper from '../../../components/WidgetWrapper.ts';
+import UserImage from '../../../components/UserImage';
+import FlexBetween from '../../../components/FlexBetween';
+import WidgetWrapper from '../../../components/WidgetWrapper';
 
-import { UserWidgetProps } from './interfaces.ts';
-import { Theme } from '../../../theme.ts';
+import { UserWidgetProps } from './interfaces';
+import { Theme } from '../../../theme';
 
 const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
   const { palette }: Theme = useTheme();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
-  const { dark } = palette.neutral;
-  const { medium } = palette.neutral;
-  const { main } = palette.neutral;
+  const { dark, medium, main } = palette.neutral;
 
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {

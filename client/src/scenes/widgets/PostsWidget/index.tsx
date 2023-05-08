@@ -5,7 +5,7 @@ import { setPosts } from '../../../slice';
 
 import PostWidget from '../PostWidget';
 
-import { Post, PostWidgetProps } from './interfaces.ts';
+import { Post, PostWidgetProps } from './interfaces';
 
 const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
@@ -45,7 +45,6 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
     <>
       {posts[0]._id ? posts.map(({
         _id,
-        userId,
         firstName,
         lastName,
         description,

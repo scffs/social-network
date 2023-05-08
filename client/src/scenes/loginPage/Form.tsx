@@ -15,13 +15,13 @@ import { useDispatch } from 'react-redux';
 
 import { setLogin } from '../../slice';
 
-import FlexBetween from '../../components/FlexBetween.ts';
+import FlexBetween from '../../components/FlexBetween';
 
 import { initialValuesRegister, initialValuesLogin } from './formValues';
 import { registerSchema, loginSchema } from './validationSchemas';
 
-import { FormValues, SubmitHandler } from './types.ts';
-import { Theme } from '../../theme.ts';
+import { FormValues, SubmitHandler } from './types';
+import { Theme } from '../../theme';
 
 const Form = () => {
   const [pageType, setPageType] = useState('login');
