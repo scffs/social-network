@@ -168,7 +168,6 @@ const Form = () => {
                   p='1rem'
                 >
                   <Dropzone
-                    acceptedFiles='.jpg,.jpeg,.png'
                     multiple={false}
                     onDrop={(acceptedFiles) => setFieldValue('picture', acceptedFiles[0])}
                   >
@@ -194,7 +193,6 @@ const Form = () => {
                 </Box>
               </>
             )}
-
             <TextField
               label='Почта'
               onBlur={handleBlur}
@@ -217,8 +215,6 @@ const Form = () => {
               sx={{ gridColumn: 'span 4' }}
             />
           </Box>
-
-          {/* BUTTONS */}
           <Box>
             <Button
               fullWidth
@@ -248,8 +244,8 @@ const Form = () => {
               }}
             >
               {isLogin
-                ? 'Еще не зарегестрированы? Создать аккаунт.'
-                : 'Уже зарегестрированы? Войти.'}
+                ? 'Еще не зарегестрированы? Создать аккаунт'
+                : 'Уже зарегестрированы? Войти'}
             </Typography>
           </Box>
         </form>

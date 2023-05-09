@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFriends } from '../../slice';
 
 import WidgetWrapper from '../WidgetWrapper';
-import Friend from '../friend/Friend';
+import Friend from '../Friend';
 
 import { FriendListWidgetProps } from './interfaces';
 
@@ -45,7 +45,7 @@ const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
         Друзья
       </Typography>
       <Box display='flex' flexDirection='column' gap='1.5rem'>
-        {friends.length !== 0 && friends.map((friend) => (
+        {friends?.map((friend) => (
           <Friend
             key={friend._id}
             friendId={friend._id}

@@ -33,7 +33,7 @@ const Friend:FC<FriendProps> = ({
   const { main } = palette.neutral;
   const { medium } = palette.neutral;
 
-  const isFriend = friends.length && friends.find((friend) => friend._id === friendId);
+  const isFriend = friends?.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
     const response = await fetch(

@@ -7,7 +7,7 @@ import { IconButton, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
 import FlexBetween from '../FlexBetween';
-import Friend from '../friend/Friend';
+import Friend from '../Friend';
 import WidgetWrapper from '../WidgetWrapper';
 
 import { setPost } from '../../slice';

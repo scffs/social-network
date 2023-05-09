@@ -5,7 +5,7 @@ import { setPosts } from '../../slice';
 
 import PostWidget from '../PostWidget';
 
-import { Post, PostWidgetProps } from './interfaces';
+import { PostWidgetProps } from './interfaces';
 
 import { RootState } from '../../store/store';
 
@@ -40,7 +40,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
     } else {
       getPosts();
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -53,8 +53,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
         picturePath,
         userPicturePath,
         likes,
-        userId,
-      }: Post) => (
+      }) => (
         <PostWidget
           key={_id}
           postId={_id}

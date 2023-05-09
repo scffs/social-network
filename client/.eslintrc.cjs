@@ -60,6 +60,7 @@ module.exports = {
                 'no-underscore-dangle': 'off',
                 '@typescript-eslint/no-floating-promises': 'off',
                 '@typescript-eslint/no-unsafe-call': 'off',
+                'react-hooks/exhaustive-deps': 'off',
             },
             parserOptions: {
                 project: ['./tsconfig.json'],

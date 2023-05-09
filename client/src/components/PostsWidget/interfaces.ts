@@ -1,6 +1,6 @@
 export interface Post {
   _id: string;
-  userId: string;
+  userId?: string;
   firstName: string;
   lastName: string;
   description: string;

@@ -31,12 +31,12 @@ import { RootState } from '../../store/store';
 const CreatePost:FC<CreatePostProps> = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<File | null>(null);
   const [post, setPost] = useState('');
   const { palette }: Theme = useTheme();
   const user = useSelector((state: RootState) => state.user);
   const token = useSelector((state: RootState) => state.token);
-  const userId = user ? user._id : null;
+  const userId = user?._id;
   const { mediumMain, medium } = palette.neutral;
 
   const handlePost = async () => {
