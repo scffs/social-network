@@ -54,9 +54,9 @@ const PostsWidget:FC<PostWidgetProps> = ({ isProfile = false }) => {
         userPicturePath,
         likes,
         userId,
-      }: Post, index: number) => (
+      }: Post) => (
         <PostWidget
-          key={index}
+          key={_id}
           postId={_id}
           postUserId={userId}
           name={`${firstName} ${lastName}`}
