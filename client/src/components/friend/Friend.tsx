@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFriends } from '../../slice';
 
 import FlexBetween from '../FlexBetween';
-import UserImage from '../userImage/UserImage';
+import UserImage from '../UserImage/UserImage';
 
 import { Theme } from '../../theme';
 
@@ -25,7 +25,7 @@ const Friend:FC<FriendProps> = ({
   const navigate = useNavigate();
   const { _id } = useSelector((state: RootState) => state.user);
   const token = useSelector((state: RootState) => state.token);
-  const friends = useSelector((state: RootState) => state.user.friends);
+  const friends = useSelector((state: RootState) => state.user?.friends);
 
   const { palette }: Theme = useTheme();
   const primaryLight = palette.primary.light;
@@ -37,7 +37,7 @@ const Friend:FC<FriendProps> = ({
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://http://localhost:3001/users/${_id}/${friendId}`,
+      `http://localhost:3001/users/${_id}/${friendId}`,
       {
         method: 'PATCH',
         headers: {
@@ -80,12 +80,12 @@ const Friend:FC<FriendProps> = ({
       </FlexBetween>
       <IconButton
         onClick={() => patchFriend()}
-        sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
+        sx={{ backgroundColor: primaryDark, p: '0.5rem' }}
       >
         {isFriend ? (
-          <PersonRemoveOutlined sx={{ color: primaryDark }} />
+          <PersonRemoveOutlined sx={{ color: primaryLight }} />
         ) : (
-          <PersonAddOutlined sx={{ color: primaryDark }} />
+          <PersonAddOutlined sx={{ color: primaryLight }} />
         )}
       </IconButton>
     </FlexBetween>
