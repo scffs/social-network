@@ -12,7 +12,8 @@ import WidgetWrapper from '../../../components/WidgetWrapper';
 
 import { setPost } from '../../../slice';
 
-import { PostWidgetProps, RootState } from './interfaces';
+import { PostWidgetProps } from './interfaces';
+
 import { Theme } from '../../../theme';
 
 const PostWidget:FC<PostWidgetProps> = ({
@@ -26,8 +27,8 @@ const PostWidget:FC<PostWidgetProps> = ({
   likes,
 }) => {
   const dispatch = useDispatch();
-  const token = useSelector((state: RootState) => state.token);
-  const loggedInUserId = useSelector((state: RootState) => state.user._id);
+  const token = useSelector((state) => state.token);
+  const loggedInUserId = useSelector((state) => state.user._id);
   const [localLikes, setLocalLikes] = useState(likes);
   const isLiked = Boolean(localLikes[loggedInUserId]);
   const likeCount = Object.keys(localLikes).length;

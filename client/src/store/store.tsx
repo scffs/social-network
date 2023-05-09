@@ -3,6 +3,7 @@ import {
   FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE,
 } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
+
 import authReducer from '../slice';
 
 const persistConfig = { key: 'root', storage, version: 1 };
