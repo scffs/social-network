@@ -6,18 +6,18 @@ import {
 import { IconButton, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import FlexBetween from '../../../components/FlexBetween';
-import Friend from '../../../components/friend/Friend';
-import WidgetWrapper from '../../../components/WidgetWrapper';
+import FlexBetween from '../FlexBetween';
+import Friend from '../friend/Friend';
+import WidgetWrapper from '../WidgetWrapper';
 
-import { setPost } from '../../../slice';
+import { setPost } from '../../slice';
 
-import { Post } from '../../../slice/interfaces';
+import { Post } from '../../slice/interfaces';
 import { PostWidgetProps } from './interfaces';
 
-import { Theme } from '../../../theme';
+import { Theme } from '../../theme';
 
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
 
 const PostWidget:FC<PostWidgetProps> = ({
   postId,
@@ -40,7 +40,6 @@ const PostWidget:FC<PostWidgetProps> = ({
   const { main } = palette.neutral;
   const primary = palette.primary.main;
 
-  console.log(postUserId, 'автор', 'текст', description);
   const handleLikeClick = async () => {
     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
       method: 'PATCH',

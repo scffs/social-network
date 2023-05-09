@@ -16,19 +16,19 @@ import {
 import Dropzone from 'react-dropzone';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setPosts } from '../../../slice';
+import { setPosts } from '../../slice';
 
-import FlexBetween from '../../../components/FlexBetween';
-import WidgetWrapper from '../../../components/WidgetWrapper';
-import UserImage from '../../../components/userImage/UserImage';
+import FlexBetween from '../FlexBetween';
+import WidgetWrapper from '../WidgetWrapper';
+import UserImage from '../UserImage/UserImage';
 
-import { UserWidgetProps } from './interfaces';
+import { CreatePostProps } from './interfaces';
 
-import { Theme } from '../../../theme';
+import { Theme } from '../../theme';
 
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
 
-const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
+const CreatePost:FC<CreatePostProps> = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
@@ -83,7 +83,6 @@ const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
           p='1rem'
         >
           <Dropzone
-            acceptedFiles='.jpg,.jpeg,.png'
             multiple={false}
             onDrop={(acceptedFiles) => setImage(acceptedFiles[0])}
           >
@@ -137,8 +136,8 @@ const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
           disabled={!post}
           onClick={handlePost}
           sx={{
-            color: palette.background.alt,
-            backgroundColor: palette.primary.main,
+            color: palette.background.default,
+            backgroundColor: palette.primary.dark,
             borderRadius: '3rem',
           }}
         >
@@ -149,4 +148,4 @@ const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
   );
 };
 
-export default MyPostWidget;
+export default CreatePost;

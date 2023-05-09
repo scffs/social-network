@@ -2,11 +2,11 @@ import React from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 
-import Header from '../../components/header';
-import UserWidget from '../widgets/UserWidget';
-import MyPostWidget from '../widgets/MyPostWidget';
-import PostsWidget from '../widgets/PostsWidget';
-import FriendListWidget from '../widgets/FriendListWidget';
+import Header from '../../components/Header';
+import UserWidget from '../../components/UserWidget';
+import MyPostWidget from '../../components/CreatePost';
+import PostsWidget from '../../components/PostsWidget';
+import FriendListWidget from '../../components/FriendListWidget';
 
 import { RootState } from '../../store/store';
 
@@ -36,7 +36,6 @@ const HomePage = () => {
         </Box>
         {isNonMobileScreens && (
           <Box flexBasis='26%'>
-            <Box m='2rem 0' />
             <FriendListWidget userId={_id} />
           </Box>
         )}

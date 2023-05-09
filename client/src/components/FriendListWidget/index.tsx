@@ -2,16 +2,16 @@ import React, { FC, useEffect } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setFriends } from '../../../slice';
+import { setFriends } from '../../slice';
 
-import WidgetWrapper from '../../../components/WidgetWrapper';
-import Friend from '../../../components/friend/Friend';
+import WidgetWrapper from '../WidgetWrapper';
+import Friend from '../friend/Friend';
 
 import { FriendListWidgetProps } from './interfaces';
 
-import { Theme } from '../../../theme';
+import { Theme } from '../../theme';
 
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
 
 const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const dispatch = useDispatch();

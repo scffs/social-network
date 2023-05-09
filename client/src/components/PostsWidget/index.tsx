@@ -1,15 +1,15 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setPosts } from '../../../slice';
+import { setPosts } from '../../slice';
 
 import PostWidget from '../PostWidget';
 
 import { Post, PostWidgetProps } from './interfaces';
 
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
 
-const PostsWidget:FC<PostWidgetProps> = ({ isProfile = false }) => {
+const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state: RootState) => state.posts);
   const token = useSelector((state: RootState) => state.token);
@@ -22,7 +22,6 @@ const PostsWidget:FC<PostWidgetProps> = ({ isProfile = false }) => {
     const data = await response.json();
     dispatch(setPosts({ posts: data }));
   };
-
   const getUserPosts = async () => {
     const response = await fetch(
       `http://localhost:3001/posts/${userId}/posts`,
@@ -43,7 +42,6 @@ const PostsWidget:FC<PostWidgetProps> = ({ isProfile = false }) => {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log(posts);
   return (
     <>
       {posts.map(({

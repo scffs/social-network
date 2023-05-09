@@ -9,7 +9,7 @@ export interface Post {
   id: string;
   description: string;
   image: string;
-  likes: [];
+  likes: { [key: string]: boolean };
 }
 
 export interface AuthState {
