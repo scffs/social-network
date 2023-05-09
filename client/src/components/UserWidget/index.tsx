@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import {
   LocationOnOutlined, Person,
   WorkOutlineOutlined,
@@ -9,36 +9,23 @@ import {
   Box, Typography, Divider, useTheme,
 } from '@mui/material';
 
-import UserImage from '../../../components/userImage/UserImage';
-import FlexBetween from '../../../components/FlexBetween';
-import WidgetWrapper from '../../../components/WidgetWrapper';
+import UserImage from '../UserImage/UserImage';
+import FlexBetween from '../FlexBetween';
+import WidgetWrapper from '../WidgetWrapper';
 
 import { UserWidgetProps } from './interfaces';
-import { User } from '../../../slice/interfaces';
 
-import { Theme } from '../../../theme';
+import { Theme } from '../../theme';
 
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
+
+import { useUser } from '../../hooks/useUser/useUser';
 
 const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
-  const [user, setUser] = useState(null);
+  const user = useUser(userId, useSelector((state: RootState) => state.token));
   const { palette }: Theme = useTheme();
   const navigate = useNavigate();
-  const token = useSelector((state: RootState) => state.token);
   const { dark, medium, main } = palette.neutral;
-
-  const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const data: User = await response.json();
-    if (data) setUser(data);
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   if (!user) {
     return null;

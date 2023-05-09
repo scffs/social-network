@@ -1,36 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import Header from '../../components/header';
-import UserWidget from '../widgets/UserWidget';
-import FriendListWidget from '../widgets/FriendListWidget';
-import MyPostWidget from '../widgets/MyPostWidget';
-import PostsWidget from '../widgets/PostsWidget';
+import Header from '../../components/Header';
+import UserWidget from '../../components/UserWidget';
+import FriendListWidget from '../../components/FriendListWidget';
+import MyPostWidget from '../../components/CreatePost';
+import PostsWidget from '../../components/PostsWidget';
+
+import { useUser } from '../../hooks/useUser/useUser';
 
 import { RootState } from '../../store/store';
 
-import { User } from '../../slice/interfaces';
-
 const ProfilePage = () => {
-  const [user, setUser] = useState(null);
   const { userId } = useParams();
   const token = useSelector((state: RootState) => state.token);
   const isNonMobileScreens = useMediaQuery('(min-width:1000px)');
 
-  const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const data: User = await response.json();
-    if (data) setUser(data);
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
+  const user = useUser(userId, token);
 
   if (!user) return null;
 
