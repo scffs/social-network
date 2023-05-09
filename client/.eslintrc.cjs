@@ -57,6 +57,9 @@ module.exports = {
                 '@typescript-eslint/restrict-template-expressions': 'off',
                 'no-param-reassign': 'off',
                 '@typescript-eslint/naming-convention': 'off',
+                'no-underscore-dangle': 'off',
+                '@typescript-eslint/no-floating-promises': 'off',
+                '@typescript-eslint/no-unsafe-call': 'off',
             },
             parserOptions: {
                 project: ['./tsconfig.json'],

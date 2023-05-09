@@ -16,14 +16,16 @@ import { Theme } from '../../theme';
 
 import { FriendProps } from './interfaces';
 
+import { RootState } from '../../store/store';
+
 const Friend:FC<FriendProps> = ({
   friendId, name, subtitle, userPicturePath,
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { _id } = useSelector((state) => state.user);
-  const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const { _id } = useSelector((state: RootState) => state.user);
+  const token = useSelector((state: RootState) => state.token);
+  const friends = useSelector((state: RootState) => state.user.friends);
 
   const { palette }: Theme = useTheme();
   const primaryLight = palette.primary.light;

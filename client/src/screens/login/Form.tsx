@@ -20,7 +20,8 @@ import FlexBetween from '../../components/FlexBetween';
 import { initialValuesRegister, initialValuesLogin } from './formValues';
 import { registerSchema, loginSchema } from './validationSchemas';
 
-import { FormValues, SubmitHandler } from './types';
+import { FormValues, SubmitHandler, LoggedIn } from './interfaces';
+
 import { Theme } from '../../theme';
 
 const Form = () => {
@@ -34,9 +35,10 @@ const Form = () => {
 
   const register: SubmitHandler<FormValues> = async (values, onSubmitProps) => {
     const formData = new FormData();
-    for (const value in values) {
-      formData.append(value, values[value]);
-    }
+    Object.keys(values).forEach((key) => {
+      const value = values[key];
+      formData.append(key, value as string | Blob);
+    });
     if (values.picture) {
       formData.append('picturePath', values.picture?.name);
     }
@@ -63,7 +65,7 @@ const Form = () => {
       body: JSON.stringify(values),
     });
 
-    const loggedIn = await loggedInResponse.json();
+    const loggedIn: LoggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
 
     if (loggedIn) {

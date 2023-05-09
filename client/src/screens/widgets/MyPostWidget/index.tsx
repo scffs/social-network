@@ -26,20 +26,22 @@ import { UserWidgetProps } from './interfaces';
 
 import { Theme } from '../../../theme';
 
+import { RootState } from '../../../store/store';
+
 const MyPostWidget:FC<UserWidgetProps> = ({ picturePath }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
   const [post, setPost] = useState('');
   const { palette }: Theme = useTheme();
-  const { _id } = useSelector((state) => state.user);
-  const token = useSelector((state) => state.token);
-  const { mediumMain } = palette.neutral;
-  const { medium } = palette.neutral;
+  const user = useSelector((state: RootState) => state.user);
+  const token = useSelector((state: RootState) => state.token);
+  const userId = user ? user._id : null;
+  const { mediumMain, medium } = palette.neutral;
 
   const handlePost = async () => {
     const formData = new FormData();
-    formData.append('userId', _id);
+    if (userId) formData.append('userId', userId);
     formData.append('description', post);
     if (image) {
       formData.append('picture', image);

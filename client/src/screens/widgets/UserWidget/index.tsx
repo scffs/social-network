@@ -14,13 +14,17 @@ import FlexBetween from '../../../components/FlexBetween';
 import WidgetWrapper from '../../../components/WidgetWrapper';
 
 import { UserWidgetProps } from './interfaces';
+import { User } from '../../../slice/interfaces';
+
 import { Theme } from '../../../theme';
+
+import { RootState } from '../../../store/store';
 
 const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
   const { palette }: Theme = useTheme();
   const navigate = useNavigate();
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state: RootState) => state.token);
   const { dark, medium, main } = palette.neutral;
 
   const getUser = async () => {
@@ -28,8 +32,8 @@ const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
     });
-    const data = await response.json();
-    setUser(data);
+    const data: User = await response.json();
+    if (data) setUser(data);
   };
 
   useEffect(() => {

@@ -12,10 +12,12 @@ import LoginPage from './screens/login';
 import HomePage from './screens/home';
 import ProfilePage from './screens/profile';
 
+import { RootState } from './store/store';
+
 const App = () => {
-  const mode = useSelector((state) => state.mode);
+  const mode = useSelector((state: RootState) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
-  const isAuth = Boolean(useSelector((state) => state.token));
+  const isAuth = Boolean(useSelector((state: RootState) => state.token));
 
   return (
     <BrowserRouter>

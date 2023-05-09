@@ -26,10 +26,12 @@ import { setMode, setLogout } from '../../slice';
 import FlexBetween from '../FlexBetween';
 import { Theme } from '../../theme';
 
+import { RootState } from '../../store/store';
+
 const Header = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state: RootState) => state.user);
   const isNonMobileScreens = useMediaQuery('(min-width: 1000px)');
 
   const { palette }: Theme = useTheme();

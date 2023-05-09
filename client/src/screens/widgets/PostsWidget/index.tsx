@@ -7,10 +7,12 @@ import PostWidget from '../PostWidget';
 
 import { Post, PostWidgetProps } from './interfaces';
 
+import { RootState } from '../../../store/store';
+
 const PostsWidget:FC<PostWidgetProps> = ({ isProfile = false }) => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
-  const token = useSelector((state) => state.token);
+  const posts = useSelector((state: RootState) => state.posts);
+  const token = useSelector((state: RootState) => state.token);
 
   const getPosts = async () => {
     const response = await fetch('http://localhost:3001/posts', {

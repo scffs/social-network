@@ -1,5 +1,5 @@
 export interface User {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   friends: User[];
@@ -9,6 +9,7 @@ export interface Post {
   id: string;
   description: string;
   image: string;
+  likes: [];
 }
 
 export interface AuthState {

@@ -9,10 +9,14 @@ import FriendListWidget from '../widgets/FriendListWidget';
 import MyPostWidget from '../widgets/MyPostWidget';
 import PostsWidget from '../widgets/PostsWidget';
 
+import { RootState } from '../../store/store';
+
+import { User } from '../../slice/interfaces';
+
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state: RootState) => state.token);
   const isNonMobileScreens = useMediaQuery('(min-width:1000px)');
 
   const getUser = async () => {
@@ -20,13 +24,13 @@ const ProfilePage = () => {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
     });
-    const data = await response.json();
-    setUser(data);
+    const data: User = await response.json();
+    if (data) setUser(data);
   };
 
   useEffect(() => {
     getUser();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!user) return null;
 

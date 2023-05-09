@@ -11,11 +11,13 @@ import { FriendListWidgetProps } from './interfaces';
 
 import { Theme } from '../../../theme';
 
+import { RootState } from '../../../store/store';
+
 const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette }: Theme = useTheme();
-  const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const token = useSelector((state: RootState) => state.token);
+  const friends = useSelector((state: RootState) => state.user?.friends);
   const getFriends = async () => {
     const response = await fetch(
       `http://localhost:3001/users/${userId}/friends`,
