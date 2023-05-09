@@ -1,12 +1,9 @@
-import { Box } from '@mui/material';
 import React, { FC } from 'react';
+import { Box } from '@mui/material';
 
-interface UserWidgetProps {
-  image: string;
-  size?: string;
-}
+import { UserImageProps } from './interfaces';
 
-const UserImage:FC<UserWidgetProps> = ({ image, size = '60px' }) => (
+const UserImage:FC<UserImageProps> = ({ image, size = '60px' }) => (
   <Box width={size} height={size}>
     <img
       style={{ objectFit: 'cover', borderRadius: '50%' }}

@@ -7,7 +7,7 @@ import { IconButton, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
 import FlexBetween from '../../../components/FlexBetween';
-import Friend from '../../../components/Friend';
+import Friend from '../../../components/friend/Friend';
 import WidgetWrapper from '../../../components/WidgetWrapper';
 
 import { setPost } from '../../../slice';
@@ -36,6 +36,7 @@ const PostWidget:FC<PostWidgetProps> = ({
   const { main } = palette.neutral;
   const primary = palette.primary.main;
 
+  console.log(postUserId, 'автор', 'текст', description);
   const handleLikeClick = async () => {
     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
       method: 'PATCH',

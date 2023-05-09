@@ -7,7 +7,7 @@ import PostWidget from '../PostWidget';
 
 import { Post, PostWidgetProps } from './interfaces';
 
-const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
+const PostsWidget:FC<PostWidgetProps> = ({ isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
@@ -41,9 +41,10 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  console.log(posts);
   return (
     <>
-      {posts[0]._id ? posts.map(({
+      {posts.map(({
         _id,
         firstName,
         lastName,
@@ -52,6 +53,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
         picturePath,
         userPicturePath,
         likes,
+        userId,
       }: Post, index: number) => (
         <PostWidget
           key={index}
@@ -64,7 +66,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
           userPicturePath={userPicturePath}
           likes={likes}
         />
-      )) : 'Постов нет'}
+      ))}
     </>
   );
 };

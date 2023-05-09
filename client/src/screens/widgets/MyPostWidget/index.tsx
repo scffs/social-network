@@ -20,7 +20,7 @@ import { setPosts } from '../../../slice';
 
 import FlexBetween from '../../../components/FlexBetween';
 import WidgetWrapper from '../../../components/WidgetWrapper';
-import UserImage from '../../../components/UserImage';
+import UserImage from '../../../components/userImage/UserImage';
 
 import { UserWidgetProps } from './interfaces';
 

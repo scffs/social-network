@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setFriends } from '../../../slice';
 
-import WidgetWrapper from '../../../components/WidgetWrapper.ts';
-import Friend from '../../../components/Friend.tsx';
+import WidgetWrapper from '../../../components/WidgetWrapper';
+import Friend from '../../../components/friend/Friend';
 
-import { FriendListWidgetProps } from './interfaces.ts';
-import { Theme } from '../../../theme.ts';
+import { FriendListWidgetProps } from './interfaces';
+
+import { Theme } from '../../../theme';
 
 const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
         fontWeight='500'
         sx={{ mb: '1.5rem' }}
       >
-        Friend List
+        Друзья
       </Typography>
       <Box display='flex' flexDirection='column' gap='1.5rem'>
         {friends.length !== 0 && friends.map((friend) => (

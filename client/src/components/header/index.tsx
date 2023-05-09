@@ -145,7 +145,7 @@ const Header = () => {
               onClick={() => dispatch(setMode())}
               sx={{ fontSize: '25px' }}
             >
-              {theme.palette.mode === 'dark' ? (
+              {palette.mode === 'dark' ? (
                 <DarkMode sx={{ fontSize: '25px' }} />
               ) : (
                 <LightMode sx={{ color: dark, fontSize: '25px' }} />
@@ -174,7 +174,7 @@ const Header = () => {
                   <Typography>{fullName}</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>
-                  Log Out
+                  Выйти
                 </MenuItem>
               </Select>
             </FormControl>

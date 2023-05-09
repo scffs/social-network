@@ -8,9 +8,9 @@ import { createTheme } from '@mui/material/styles';
 
 import { themeSettings } from './theme';
 
-import LoginPage from './scenes/loginPage';
-import HomePage from './scenes/homePage';
-import ProfilePage from './scenes/profilePage';
+import LoginPage from './screens/login';
+import HomePage from './screens/home';
+import ProfilePage from './screens/profile';
 
 const App = () => {
   const mode = useSelector((state) => state.mode);

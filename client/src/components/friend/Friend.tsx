@@ -7,17 +7,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setFriends } from '../slice';
-import FlexBetween from './FlexBetween';
-import UserImage from './UserImage';
-import { Theme } from '../theme';
+import { setFriends } from '../../slice';
 
-interface FriendProps {
-  friendId: string;
-  name: string;
-  subtitle: string;
-  userPicturePath: string;
-}
+import FlexBetween from '../FlexBetween';
+import UserImage from '../userImage/UserImage';
+
+import { Theme } from '../../theme';
+
+import { FriendProps } from './interfaces';
 
 const Friend:FC<FriendProps> = ({
   friendId, name, subtitle, userPicturePath,

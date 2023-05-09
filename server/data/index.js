@@ -18,8 +18,8 @@ export const users = [
         lastName: 'Захарова',
         age: 30,
         email: 'mary@mail.ru',
-        password: 'X5S~{WQ>`T*~h(c{',
-        picturePath: '',
+        password: 'asdasda35rsdfsdf',
+        picturePath: 'mary.jpg',
         friends: [],
         location: 'Россия, Москва',
         occupation: 'МГУ',
@@ -49,7 +49,7 @@ export const users = [
         age: 19,
         email: 'zintosion@yandex.ru',
         password: '1bb5OmyQx18WDTx',
-        picturePath: 'ava.png',
+        picturePath: 'nikita.jpg',
         friends: [],
         location: 'Россия, Москва',
         occupation: 'МФЮА',
@@ -64,12 +64,40 @@ export const users = [
         age: 99,
         email: 'man@gmail.com',
         password: '59dKXw0Y472OuWg',
-        picturePath: 'ava.png',
+        picturePath: 'man.jpg',
         friends: [],
         location: 'Город, Страна',
         occupation: 'Занятой',
         createdAt: 1683342957,
         updatedAt: 1683342957,
         __v: 0,
+    },
+];
+
+export const posts = [
+    {
+        _id: createId(),
+        userId: users[1]._id,
+        firstName: users[1].firstName,
+        lastName: users[1].lastName,
+        location: users[1].location,
+        description: 'Важная информация',
+        userPicturePath: users[1].picturePath,
+        likes: new Map([
+            [users[0]._id.toString(), true],
+        ])
+    },
+    {
+        _id: createId(),
+        userId: users[2]._id,
+        firstName: users[2].firstName,
+        lastName: users[2].lastName,
+        location: users[2].location,
+        description: 'Не менее важная информация',
+        userPicturePath: users[1].picturePath,
+        picturePath: 'ava.png',
+        likes: new Map([
+            [users[3]._id.toString(), true],
+        ])
     },
 ];
