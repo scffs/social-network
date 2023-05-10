@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { User } from '../../slice/interfaces';
 
-export const useUser = (userId: string, token: string) => {
+export const useUser = (userId?: string, token?: string | null) => {
   const [user, setUser] = useState<User | null>(null);
 
   const getUser = async () => {

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import Header from '../../components/Header';
-import UserWidget from '../../components/UserWidget';
-import FriendListWidget from '../../components/FriendListWidget';
-import MyPostWidget from '../../components/CreatePost';
-import PostsWidget from '../../components/PostsWidget';
+// import Header from '../../components/Header';
+// import UserWidget from '../../components/UserWidget';
+// import FriendListWidget from '../../components/FriendListWidget';
+// import MyPostWidget from '../../components/CreatePost';
+// import PostsWidget from '../../components/PostsWidget';
 
 import { useUser } from '../../hooks/useUser/useUser';
 
 import { RootState } from '../../store/store';
+
+const CreatePost = lazy(() => import('../../components/CreatePost'));
+const PostsWidget = lazy(() => import('../../components/PostsWidget'));
+const FriendListWidget = lazy(() => import('../../components/FriendListWidget'));
+const UserWidget = lazy(() => import('../../components/UserWidget'));
+const Header = lazy(() => import('../../components/Header'));
 
 const ProfilePage = () => {
   const { userId } = useParams();
@@ -24,28 +29,30 @@ const ProfilePage = () => {
 
   return (
     <Box>
-      <Header />
-      <Box
-        width='100%'
-        padding='2rem 6%'
-        display={isNonMobileScreens ? 'flex' : 'block'}
-        gap='2rem'
-        justifyContent='center'
-      >
-        <Box flexBasis={isNonMobileScreens ? '26%' : undefined}>
-          <UserWidget userId={userId} picturePath={user.picturePath} />
-          <Box m='2rem 0' />
-          <FriendListWidget userId={userId} />
-        </Box>
+      <Suspense fallback={<div>Загрузка...</div>}>
+        <Header />
         <Box
-          flexBasis={isNonMobileScreens ? '42%' : undefined}
-          mt={isNonMobileScreens ? undefined : '2rem'}
+          width='100%'
+          padding='2rem 6%'
+          display={isNonMobileScreens ? 'flex' : 'block'}
+          gap='2rem'
+          justifyContent='center'
         >
-          <MyPostWidget picturePath={user.picturePath} />
-          <Box m='2rem 0' />
-          <PostsWidget userId={userId} isProfile />
+          <Box flexBasis={isNonMobileScreens ? '26%' : undefined}>
+            <UserWidget userId={userId} picturePath={user.picturePath} />
+            <Box m='2rem 0' />
+            <FriendListWidget userId={userId} />
+          </Box>
+          <Box
+            flexBasis={isNonMobileScreens ? '42%' : undefined}
+            mt={isNonMobileScreens ? undefined : '2rem'}
+          >
+            <CreatePost picturePath={user.picturePath} />
+            <Box m='2rem 0' />
+            <PostsWidget userPostsId={userId} isProfile />
+          </Box>
         </Box>
-      </Box>
+      </Suspense>
     </Box>
   );
 };

@@ -11,6 +11,6 @@ export interface Post {
 }
 
 export interface PostWidgetProps {
-  userId?: string;
+  userPostsId?: string;
   isProfile?: boolean;
 }

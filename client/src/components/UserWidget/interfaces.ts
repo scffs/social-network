@@ -1,4 +1,4 @@
 export interface UserWidgetProps {
-  userId: string;
+  userId?: string;
   picturePath: string;
 }

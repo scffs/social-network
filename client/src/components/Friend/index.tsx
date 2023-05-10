@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { PersonAddOutlined, PersonRemoveOutlined } from '@mui/icons-material';
 import {
-  Box, IconButton, Typography, useTheme,
+  IconButton, Typography, useTheme,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -19,21 +19,20 @@ import { FriendProps } from './interfaces';
 import { RootState } from '../../store/store';
 
 const Friend:FC<FriendProps> = ({
-  friendId, name, subtitle, userPicturePath,
+  friendId, name, subtitle, userPicturePath, userId,
 }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // @ts-ignore
   const { _id } = useSelector((state: RootState) => state.user);
   const token = useSelector((state: RootState) => state.token);
   const friends = useSelector((state: RootState) => state.user?.friends);
-
   const { palette }: Theme = useTheme();
   const primaryLight = palette.primary.light;
   const primaryDark = palette.primary.dark;
   const { main } = palette.neutral;
   const { medium } = palette.neutral;
 
-  const isFriend = friends?.find((friend) => friend._id === friendId);
+  const isFriend = friends?.length && friends?.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
     const response = await fetch(
@@ -54,11 +53,8 @@ const Friend:FC<FriendProps> = ({
     <FlexBetween>
       <FlexBetween gap='1rem'>
         <UserImage image={userPicturePath} size='55px' />
-        <Box
-          onClick={() => {
-            navigate(`/profile/${friendId}`);
-            navigate(0);
-          }}
+        <Link
+          to={`/profile/${friendId}`}
         >
           <Typography
             color={main}
@@ -76,18 +72,20 @@ const Friend:FC<FriendProps> = ({
           <Typography color={medium} fontSize='0.75rem'>
             {subtitle}
           </Typography>
-        </Box>
+        </Link>
       </FlexBetween>
-      <IconButton
-        onClick={() => patchFriend()}
-        sx={{ backgroundColor: primaryDark, p: '0.5rem' }}
-      >
-        {isFriend ? (
-          <PersonRemoveOutlined sx={{ color: primaryLight }} />
-        ) : (
-          <PersonAddOutlined sx={{ color: primaryLight }} />
-        )}
-      </IconButton>
+      {userId !== friendId && (
+        <IconButton
+          onClick={() => patchFriend()}
+          sx={{ backgroundColor: primaryDark, p: '0.5rem' }}
+        >
+          {isFriend ? (
+            <PersonRemoveOutlined sx={{ color: primaryLight }} />
+          ) : (
+            <PersonAddOutlined sx={{ color: primaryLight }} />
+          )}
+        </IconButton>
+      )}
     </FlexBetween>
   );
 };

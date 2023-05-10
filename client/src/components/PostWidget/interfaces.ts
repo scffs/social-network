@@ -1,6 +1,6 @@
 export interface PostWidgetProps {
   postId: string;
-  postUserId: string;
+  postUserId?: string;
   name: string;
   description: string;
   location: string;

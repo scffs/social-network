@@ -33,9 +33,11 @@ const PostWidget:FC<PostWidgetProps> = ({
   const token = useSelector((state: RootState) => state.token);
   const loggedInUserId = useSelector((state: RootState) => state.user?._id);
   const [localLikes, setLocalLikes] = useState(likes);
+  // @ts-ignore
   const isLiked = Boolean(localLikes[loggedInUserId]);
   const likeCount = Object.keys(localLikes).length;
-
+  // @ts-ignore
+  const { _id } = useSelector((state: RootState) => state.user);
   const { palette }: Theme = useTheme();
   const { main } = palette.neutral;
   const primary = palette.primary.main;
@@ -57,6 +59,7 @@ const PostWidget:FC<PostWidgetProps> = ({
   return (
     <WidgetWrapper m='2rem 0'>
       <Friend
+        userId={_id}
         friendId={postUserId}
         name={name}
         subtitle={location}

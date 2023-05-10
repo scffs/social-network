@@ -18,15 +18,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setPosts } from '../../slice';
 
-import FlexBetween from '../FlexBetween';
-import WidgetWrapper from '../WidgetWrapper';
-import UserImage from '../UserImage/UserImage';
-
 import { CreatePostProps } from './interfaces';
 
 import { Theme } from '../../theme';
 
 import { RootState } from '../../store/store';
+
+import FlexBetween from '../FlexBetween';
+import WidgetWrapper from '../WidgetWrapper';
+import UserImage from '../UserImage/UserImage';
 
 const CreatePost:FC<CreatePostProps> = ({ picturePath }) => {
   const dispatch = useDispatch();

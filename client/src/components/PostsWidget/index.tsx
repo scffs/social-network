@@ -9,7 +9,7 @@ import { PostWidgetProps } from './interfaces';
 
 import { RootState } from '../../store/store';
 
-const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
+const PostsWidget:FC<PostWidgetProps> = ({ userPostsId, isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state: RootState) => state.posts);
   const token = useSelector((state: RootState) => state.token);
@@ -24,7 +24,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
   };
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`,
+      `http://localhost:3001/posts/${userPostsId}/posts`,
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${token}` },
@@ -53,6 +53,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userId, isProfile = false }) => {
         picturePath,
         userPicturePath,
         likes,
+        userId,
       }) => (
         <PostWidget
           key={_id}

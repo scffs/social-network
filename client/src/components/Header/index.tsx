@@ -24,6 +24,7 @@ import { Link } from 'react-router-dom';
 import { setMode, setLogout } from '../../slice';
 
 import FlexBetween from '../FlexBetween';
+
 import { Theme } from '../../theme';
 
 import { RootState } from '../../store/store';
@@ -39,11 +40,15 @@ const Header = () => {
   const { dark } = palette.neutral;
 
   const background = palette.background.default;
-  const alt = palette.background.paper;
+  const { alt } = palette.background;
 
-  const fullName = `${user.firstName} ${user.lastName}`;
+  const fullName = `${user?.firstName} ${user?.lastName}`;
 
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
   return (
+    // @ts-ignore
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
       <FlexBetween gap='1.75rem'>
         <Link to='/home'>
@@ -62,6 +67,7 @@ const Header = () => {
         </Link>
         {isNonMobileScreens && (
           <FlexBetween
+            // @ts-ignore
             backgroundColor={neutralLight}
             borderRadius='9px'
             gap='3rem'
@@ -74,8 +80,6 @@ const Header = () => {
           </FlexBetween>
         )}
       </FlexBetween>
-
-      {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap='2rem'>
           <IconButton onClick={() => dispatch(setMode())}>
@@ -86,7 +90,8 @@ const Header = () => {
             )}
           </IconButton>
           <Message sx={{ fontSize: '25px' }} />
-          <FormControl variant='standard' value={fullName}>
+
+          <FormControl component='div' variant='standard'>
             <Select
               value={fullName}
               sx={{
@@ -129,7 +134,7 @@ const Header = () => {
           minWidth='300px'
           backgroundColor={background}
         >
-          <Box display='flex' justifyContent='flex-end' p='1rem'>
+          <Box display='flex' justifyContent='flex-end' p='2rem'>
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
             >
@@ -154,7 +159,8 @@ const Header = () => {
               )}
             </IconButton>
             <Message sx={{ fontSize: '25px' }} />
-            <FormControl variant='standard' value={fullName}>
+            {/* // @ts-ignore */}
+            <FormControl variant='standard' component='div'>
               <Select
                 value={fullName}
                 sx={{

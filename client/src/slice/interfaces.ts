@@ -4,6 +4,9 @@ export interface User {
   lastName: string;
   occupation: string;
   picturePath: string;
+  userPicturePath: string;
+  location: string;
+  age: number;
   email: string;
   friends: User[];
 }

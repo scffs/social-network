@@ -1,11 +1,10 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, lazy, useEffect } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setFriends } from '../../slice';
 
 import WidgetWrapper from '../WidgetWrapper';
-import Friend from '../Friend';
 
 import { FriendListWidgetProps } from './interfaces';
 
@@ -13,10 +12,13 @@ import { Theme } from '../../theme';
 
 import { RootState } from '../../store/store';
 
+const Friend = lazy(() => import('../Friend'));
+
 const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette }: Theme = useTheme();
   const token = useSelector((state: RootState) => state.token);
+  const { _id } = useSelector((state: RootState) => state.user);
   const friends = useSelector((state: RootState) => state.user?.friends);
   const getFriends = async () => {
     const response = await fetch(
@@ -45,9 +47,10 @@ const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
         Друзья
       </Typography>
       <Box display='flex' flexDirection='column' gap='1.5rem'>
-        {friends?.map((friend) => (
+        {friends?.length !== 0 && friends?.map((friend) => (
           <Friend
             key={friend._id}
+            userId={_id}
             friendId={friend._id}
             name={`${friend.firstName} ${friend.lastName}`}
             subtitle={friend.occupation}
