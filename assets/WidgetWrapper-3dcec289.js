@@ -1,0 +1,1 @@
+import{d as r}from"./Typography-4f28d770.js";import{B as e}from"./useMediaQuery-37f9338f.js";const o=r(e)((({theme:r})=>({padding:"1.5rem 1.5rem 0.75rem 1.5rem",backgroundColor:r.palette.background.alt,borderRadius:"0.75rem"})));export{o as W};
