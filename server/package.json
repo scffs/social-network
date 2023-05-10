@@ -19,7 +19,8 @@
     "multer-gridfs-storage": "^5.0.2"
   },
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "engines": {
     "node": "19.8.1",
