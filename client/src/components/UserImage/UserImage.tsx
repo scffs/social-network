@@ -10,7 +10,7 @@ const UserImage:FC<UserImageProps> = ({ image, size = '60px' }) => (
       width={size}
       height={size}
       alt='user'
-      src={`http://localhost:3001/assets/${image}`}
+      src={`https://scffs.github.io/social-network/assets/${image}`}
     />
   </Box>
 );

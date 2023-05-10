@@ -36,7 +36,7 @@ const Friend:FC<FriendProps> = ({
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${_id}/${friendId}`,
+      `https://scffs.github.io/social-network/users/${_id}/${friendId}`,
       {
         method: 'PATCH',
         headers: {

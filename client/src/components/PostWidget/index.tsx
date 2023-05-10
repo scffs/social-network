@@ -43,7 +43,7 @@ const PostWidget:FC<PostWidgetProps> = ({
   const primary = palette.primary.main;
 
   const handleLikeClick = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`https://scffs.github.io/social-network/posts/${postId}/like`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -74,7 +74,7 @@ const PostWidget:FC<PostWidgetProps> = ({
           height='auto'
           alt='post'
           style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }}
-          src={`http://localhost:3001/assets/${picturePath}`}
+          src={`https://scffs.github.io/social-network/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt='0.25rem'>
