@@ -1,11 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
-// import Header from '../../components/Header';
-// import UserWidget from '../../components/UserWidget';
-// import MyPostWidget from '../../components/CreatePost';
-// import PostsWidget from '../../components/PostsWidget';
-// import FriendListWidget from '../../components/FriendListWidget';
 
 import { RootState } from '../../store/store';
 

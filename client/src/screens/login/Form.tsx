@@ -44,7 +44,7 @@ const Form = () => {
     }
 
     const savedUserResponse = await fetch(
-      'social-network-production-ca2f.up.railway.app/auth/register',
+      'https://social-network-production-ca2f.up.railway.app/auth/register',
       {
         method: 'POST',
         body: formData,
@@ -59,7 +59,7 @@ const Form = () => {
   };
 
   const login: SubmitHandler<FormValues> = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch('social-network-production-ca2f.up.railway.app/auth/login', {
+    const loggedInResponse = await fetch('https://social-network-production-ca2f.up.railway.app/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
