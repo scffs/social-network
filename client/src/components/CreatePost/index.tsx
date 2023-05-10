@@ -48,7 +48,7 @@ const CreatePost:FC<CreatePostProps> = ({ picturePath }) => {
       formData.append('picturePath', image.name);
     }
 
-    const response = await fetch('social-network-production-ca2f.up.railway.app/posts', {
+    const response = await fetch('https://social-network-production-ca2f.up.railway.app/posts', {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

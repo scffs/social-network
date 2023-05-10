@@ -36,7 +36,7 @@ const Friend:FC<FriendProps> = ({
 
   const patchFriend = async () => {
     const response = await fetch(
-      `social-network-production-ca2f.up.railway.app/users/${_id}/${friendId}`,
+      `https://social-network-production-ca2f.up.railway.app/users/${_id}/${friendId}`,
       {
         method: 'PATCH',
         headers: {
