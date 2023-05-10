@@ -1,1 +1,0 @@
-import{j as s}from"./index-f6ed56c1.js";import{B as e}from"./useMediaQuery-5ff53dfc.js";const i=({image:i,size:r="60px"})=>s.jsx(e,{width:r,height:r,children:s.jsx("img",{style:{objectFit:"cover",borderRadius:"50%"},width:r,height:r,alt:"user",src:`social-network-production-ca2f.up.railway.app/assets/${i}`})});export{i as U};
