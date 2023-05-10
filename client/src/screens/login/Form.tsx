@@ -59,7 +59,7 @@ const Form = () => {
   };
 
   const login: SubmitHandler<FormValues> = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch('https://scffs.github.io/social-network/auth/login', {
+    const loggedInResponse = await fetch('social-network-production-ca2f.up.railway.app/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),

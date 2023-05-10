@@ -43,7 +43,7 @@ const PostWidget:FC<PostWidgetProps> = ({
   const primary = palette.primary.main;
 
   const handleLikeClick = async () => {
-    const response = await fetch(`https://scffs.github.io/social-network/posts/${postId}/like`, {
+    const response = await fetch(`social-network-production-ca2f.up.railway.app/posts/${postId}/like`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,

@@ -15,7 +15,7 @@ const PostsWidget:FC<PostWidgetProps> = ({ userPostsId, isProfile = false }) => 
   const token = useSelector((state: RootState) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch('https://scffs.github.io/social-network/posts', {
+    const response = await fetch('social-network-production-ca2f.up.railway.app/posts', {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
     });
