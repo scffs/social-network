@@ -20,7 +20,6 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "types": ["vitest/globals"],
     "noImplicitAny": false,
   },
   "include": ["src", "vite.config.ts", "./.eslintrc.js", "index.d.ts"]
