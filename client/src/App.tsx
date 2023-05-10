@@ -25,15 +25,16 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route path='/' element={<LoginPage />} />
+            <Route path='/social-network/' element={<LoginPage />} />
             <Route
-              path='/home'
-              element={isAuth ? <HomePage /> : <Navigate to='/' />}
+              path='/homesocial-network/'
+              element={isAuth ? <HomePage /> : <Navigate to='/social-network/' />}
             />
             <Route
-              path='/profile/:userId'
-              element={isAuth ? <ProfilePage /> : <Navigate to='/' />}
+              path='/social-network/profile/:userId'
+              element={isAuth ? <ProfilePage /> : <Navigate to='/social-network/' />}
             />
+            <Route path='*' element={<div>Not found</div>} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

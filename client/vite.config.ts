@@ -20,5 +20,5 @@ export default defineConfig({
       safari10: false,
     },
   },
-  base: '/',
+  base: '/social-network/',
 });

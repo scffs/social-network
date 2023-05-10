@@ -54,7 +54,7 @@ const Friend:FC<FriendProps> = ({
       <FlexBetween gap='1rem'>
         <UserImage image={userPicturePath} size='55px' />
         <Link
-          to={`/profile/${friendId}`}
+          to={`/social-network/profile/${friendId}`}
         >
           <Typography
             color={main}
