@@ -1,0 +1,1 @@
+import{j as s}from"./index-f51a754d.js";import{B as e}from"./useMediaQuery-e03fb730.js";const t=({image:t,size:i="60px"})=>s.jsx(e,{width:i,height:i,children:s.jsx("img",{style:{objectFit:"cover",borderRadius:"50%"},width:i,height:i,alt:"user",src:`http://localhost:3001/assets/${t}`})});export{t as U};
