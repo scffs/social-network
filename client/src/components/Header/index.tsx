@@ -44,9 +44,6 @@ const Header = () => {
 
   const fullName = `${user?.firstName} ${user?.lastName}`;
 
-  // @ts-ignore
-  // @ts-ignore
-  // @ts-ignore
   return (
     // @ts-ignore
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
@@ -132,7 +129,7 @@ const Header = () => {
           zIndex='10'
           maxWidth='500px'
           minWidth='300px'
-          backgroundColor={background}
+          bgcolor={background}
         >
           <Box display='flex' justifyContent='flex-end' p='2rem'>
             <IconButton
