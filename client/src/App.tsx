@@ -27,7 +27,7 @@ const App = () => {
           <Routes>
             <Route path='/social-network/' element={<LoginPage />} />
             <Route
-              path='/homesocial-network/'
+              path='/social-network/home'
               element={isAuth ? <HomePage /> : <Navigate to='/social-network/' />}
             />
             <Route
