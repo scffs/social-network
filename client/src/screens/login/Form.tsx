@@ -44,7 +44,7 @@ const Form = () => {
     }
 
     const savedUserResponse = await fetch(
-      'https://scffs.github.io/social-network/auth/register',
+      'social-network-production-ca2f.up.railway.app/auth/register',
       {
         method: 'POST',
         body: formData,

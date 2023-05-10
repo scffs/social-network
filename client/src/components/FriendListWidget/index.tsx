@@ -23,7 +23,7 @@ const FriendListWidget:FC<FriendListWidgetProps> = ({ userId }) => {
   const friends = useSelector((state: RootState) => state.user?.friends);
   const getFriends = async () => {
     const response = await fetch(
-      `https://scffs.github.io/social-network/users/${userId}/friends`,
+      `social-network-production-ca2f.up.railway.app/users/${userId}/friends`,
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${token}` },

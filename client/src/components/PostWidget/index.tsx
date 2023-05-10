@@ -74,7 +74,7 @@ const PostWidget:FC<PostWidgetProps> = ({
           height='auto'
           alt='post'
           style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }}
-          src={`https://scffs.github.io/social-network/assets/${picturePath}`}
+          src={`social-network-production-ca2f.up.railway.app/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt='0.25rem'>
