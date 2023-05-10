@@ -22,10 +22,6 @@
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "engines": {
-    "node": "19.8.1",
-    "yarn": "1.22.19"
-  },
   "author": "scffs",
   "license": "ISC"
 }
