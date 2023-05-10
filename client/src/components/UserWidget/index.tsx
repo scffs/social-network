@@ -68,7 +68,7 @@ const UserWidget:FC<UserWidgetProps> = ({ userId, picturePath }) => {
             <Typography color={medium}>
               {friends?.length}
               {' '}
-              friends
+              друзей
             </Typography>
           </Box>
         </FlexBetween>
