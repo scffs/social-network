@@ -10,19 +10,9 @@ Stack:
 - Node: 19.8.1
 - Yarn: 1.22.19
 
-### SSH
-```
-git@github.com:scffs/social-network.git
-```
-
 ### HTTPS
 ```
-https://github.com/scffs/social-network.git
-```
-
-### GitHub CLI
-```
-gh repo clone scffs/social-network
+git clone https://github.com/scffs/social-network
 ```
 
 For installing all dependencies type `yarn` in `client` and `server` directories
